@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="#999999">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:layout_marginTop="28dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        />
+
+    <TextView
+        android:id="@+id/dialog_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_title"
+        android:textSize="18sp"
+        android:textColor="#333333"
+        android:gravity="center"
+        android:layout_marginTop="18dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        />
+        <View
+            android:id="@+id/dividing_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#1f000000"
+            android:layout_marginTop="38dp"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_content"/>
+
+      <TextView
+          android:id="@+id/dialog_cancel"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:paddingTop="10dp"
+          android:paddingBottom="10dp"
+          app:layout_constraintHorizontal_chainStyle="spread_inside"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintTop_toBottomOf="@+id/dividing_line"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toStartOf="@id/dividing_line_vertical"
+          android:textColor="#333333"
+          android:textSize="18sp"/>
+    <View
+        android:id="@+id/dividing_line_vertical"
+        android:layout_width="0.1dp"
+        android:layout_height="20dp"
+        android:background="#1f000000"
+        app:layout_constraintHorizontal_weight="0"
+        app:layout_constraintStart_toEndOf="@id/dialog_cancel"
+        app:layout_constraintEnd_toStartOf="@id/dialog_confirm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dividing_line"/>
+
+    <TextView
+        android:id="@+id/dialog_confirm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/dividing_line"
+        app:layout_constraintHorizontal_weight="1"
+        android:textColor="#333333"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dividing_line_vertical"
+        android:textSize="18sp"/>
+
+</android.support.constraint.ConstraintLayout>
+</layout>

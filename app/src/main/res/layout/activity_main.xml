@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/et_phone_number"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:hint="请输入手机号"
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_sc_address"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:hint="scAddress:消息中心地址不指定使用默认"
+        android:text=""
+        android:textSize="12dp"
+        app:layout_constraintLeft_toLeftOf="@+id/et_phone_number"
+        app:layout_constraintTop_toBottomOf="@+id/et_phone_number" />
+
+    <EditText
+        android:id="@+id/et_destination_port"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:hint="destinationPort:二进制消息目的端口 默认:16001"
+        android:text=""
+        android:textSize="12dp"
+        app:layout_constraintLeft_toLeftOf="@+id/et_phone_number"
+        app:layout_constraintTop_toBottomOf="@+id/et_sc_address" />
+
+    <EditText
+        android:id="@+id/et_msg"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint="请输入短信内容"
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_destination_port" />
+
+    <TextView
+        android:id="@+id/tv_binary_index"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="短信对应二进制："
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_msg" />
+
+    <TextView
+        android:id="@+id/tv_binary"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text=""
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_binary_index" />
+
+    <Button
+        android:id="@+id/btn_send_normal_msg"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="发送普通消息"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_binary" />
+
+    <Button
+        android:id="@+id/btn_send_binary_msg"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="发送二进制消息"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_send_normal_msg" />
+
+    <TextView
+        android:id="@+id/tv_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="left"
+        android:text="NOTICE:\n\n1.发送普通短信只需输入手机号、短信内容即可，非必需请勿自己填写scAddress\n\n 2.destinationPort为二进制消息特有参数，本Demo默认使用16001，发送二进制消息请跟运营商确定scAddress、destinationPort等参数"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

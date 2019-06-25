@@ -1,0 +1,14 @@
+.DS_Store
+
+*.iml
+.gradle
+mapping.txt
+seeds.txt
+.idea/
+/local.properties
+/build
+megasdk/build
+
+/captures
+.externalNativeBuild
+
