@@ -63,14 +63,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sendNormalMsg();
-                Toast.makeText(MainActivity.this, "已发送", Toast.LENGTH_SHORT).show();
+
             }
         });
         btn_send_binary_msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendBinaryMsg();
-                Toast.makeText(MainActivity.this, "已发送", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -92,13 +91,15 @@ public class MainActivity extends AppCompatActivity {
         String phoneNum = et_phone_number.getText().toString().trim();
         String smsContent = et_msg.getText().toString().trim();
         String scAddressStr = et_sc_address.getText().toString().trim();
-
         String scAddress = TextUtils.isEmpty(scAddressStr) ? null : scAddressStr;
-
+        if (paramInvalid(phoneNum)) {
+            return;
+        }
         // 2.获取发送短信的api
         SmsManager smsManager = SmsManager.getDefault();
         // 3.发送短信
         smsManager.sendMultipartTextMessage(phoneNum, scAddress, smsManager.divideMessage(smsContent), null, null);
+        Toast.makeText(MainActivity.this, "已发送", Toast.LENGTH_SHORT).show();
     }
 
     public void sendBinaryMsg() {
@@ -107,7 +108,9 @@ public class MainActivity extends AppCompatActivity {
         String smsContent = et_msg.getText().toString().trim();
         String scAddressStr = et_sc_address.getText().toString().trim();
         String destinationPortStr = et_destination_port.getText().toString().trim();
-
+        if (paramInvalid(phoneNum)) {
+            return;
+        }
 
         String scAddress = TextUtils.isEmpty(scAddressStr) ? null : scAddressStr;
         short destinationPort = TextUtils.isEmpty(destinationPortStr) ? 16001 : Short.valueOf(destinationPortStr);
@@ -116,6 +119,20 @@ public class MainActivity extends AppCompatActivity {
         SmsManager smsManager = SmsManager.getDefault();
         // 3.发送短信
         smsManager.sendDataMessage(phoneNum, scAddress, destinationPort, smsContent.getBytes(), null, null);
+        Toast.makeText(MainActivity.this, "已发送", Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 参数校验
+     * @param phoneNum
+     * @return
+     */
+    private boolean paramInvalid(String phoneNum) {
+        if(TextUtils.isEmpty(phoneNum)){
+            Toast.makeText(MainActivity.this, "手机号不能为空", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return false;
     }
 
 }
